@@ -144,7 +144,7 @@ func (s *Session) OpenStream() (*Stream, error) {
 		if s.synDone != nil {
 			s.synDone()
 		}
-		s.synDone = util.NewDeadlineWatcher(time.Second*3, func() {
+		s.synDone = util.NewDeadlineWatcher(time.Second*5, func() {
 			s.Close()
 		})
 		s.synDoneLock.Unlock()
